@@ -15,7 +15,7 @@ import os
 sys.path.append('./prompt_function/')
 
 def evaluate(batch_prompts, llm, samplingparams):
-    generation_config = samplingparams.__dict__
+    generation_config = {attr: getattr(samplingparams, attr) for attr in dir(samplingparams) if not attr.startswith('_')}
     batch_output = llm.generate(batch_prompts, samplingparams)
 
     return generation_config, batch_output
