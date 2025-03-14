@@ -240,6 +240,8 @@ if __name__ == "__main__":
             total_not_found = 0
             print(file_path)
             data = read_jsonl_file(file_dir+file_path)
+            if not os.path.exists(f'final_result/greedy_result/code_{dataset}'):
+                os.makedirs(f'final_result/greedy_result/code_{dataset}', exist_ok=True)
             with open(f'final_result/greedy_result/code_{dataset}/{file_path}', 'w') as f:
                 for idx, d in enumerate(data[1:]):
                     try:
