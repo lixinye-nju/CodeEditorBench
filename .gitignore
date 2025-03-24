@@ -1,3 +1,12 @@
 not published/
 data/
 greedy_result/
+
+
+evaluation/judge/*.pid
+evaluation/judge/data
+evaluation/judge/log
+evaluation/judge/metrics
+evaluation/judge/polish_limit
+evaluation/judge/scripts/runlog.out
+evaluation/judge/solution_folder/
