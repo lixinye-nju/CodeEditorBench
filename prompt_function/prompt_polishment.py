@@ -56,7 +56,11 @@ Output: {public_tests_output}
 
         elif name == "octocoder" or name == 'codellama':
             prompt += f"""Question: {instruction} \n\nAnswer:"""
-        
+
+        elif name == "qwen":
+            prompt += f"<|im_start|>user\n{instruction}<|im_end|>\n"
+            prompt += f"<|im_start|>assistant\n"
+
         elif name == "phind":
             prompt += f"""
 ### System Prompt

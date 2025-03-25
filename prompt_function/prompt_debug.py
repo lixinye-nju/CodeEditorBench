@@ -56,6 +56,10 @@ Output: {public_tests_output}
             BOT_ROLE_START_TAG = "<|role_start|>bot<|role_end|>"
             prompt += f"{HUMAN_ROLE_START_TAG}{instruction}{BOT_ROLE_START_TAG}"
 
+        elif name == "qwen":
+            prompt += f"<|im_start|>user\n{instruction}<|im_end|>\n"
+            prompt += f"<|im_start|>assistant\n"
+
         elif name == "octocoder" or name == 'codellama':
             prompt += f"""Question: {instruction} \n\nAnswer:"""
         

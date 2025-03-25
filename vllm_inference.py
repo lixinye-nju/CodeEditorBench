@@ -81,6 +81,9 @@ def main():
     elif 'OpenCode' in args.base_model:
         model_choice = 'deepseek'
         group = 'group1'
+    elif 'Qwen' in args.base_model:
+        model_choice = 'qwen'
+        group = 'group1'
     else:
         raise ValueError(f"Invalid model name: {args.base_model}")
     get_prompt_function_name = f"generate_prompt_{group}"
@@ -88,10 +91,11 @@ def main():
 
     # Set hyperparameters
     if args.num_of_sequences == 1:        
-        samplingparams=SamplingParams(n=args.num_of_sequences, temperature=0.0, max_tokens=2048, frequency_penalty=frequency_penalty, presence_penalty=presence_penalty)
+        samplingparams=SamplingParams(n=args.num_of_sequences, temperature=0.0, max_tokens=2048, frequency_penalty=frequency_penalty, presence_penalty=presence_penalty, best_of=1)
     else:
-        samplingparams=SamplingParams(n=args.num_of_sequences, temperature=0.8, top_p=0.9, top_k=40, max_tokens=2048, frequency_penalty=frequency_penalty, presence_penalty=presence_penalty) 
+        samplingparams=SamplingParams(n=args.num_of_sequences, temperature=0.8, top_p=0.9, top_k=40, max_tokens=2048, frequency_penalty=frequency_penalty, presence_penalty=presence_penalty, best_of=1) 
     
+
     # Input file name
     input_data_path = args.input_data_dir + f"code_{args.dataset}_primary.jsonl"
     model_name = args.base_model.split('/')[-1].replace('-', '_').replace('.', '_')\

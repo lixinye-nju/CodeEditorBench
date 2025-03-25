@@ -51,6 +51,11 @@ Output: {public_tests_output}
 
 @@ Response
 """            
+
+        elif name == "qwen":
+            prompt += f"<|im_start|>user\n{instruction}<|im_end|>\n"
+            prompt += f"<|im_start|>assistant\n"
+
         elif name == "codefuse":
             HUMAN_ROLE_START_TAG = "<|role_start|>human<|role_end|>"
             BOT_ROLE_START_TAG = "<|role_start|>bot<|role_end|>"
