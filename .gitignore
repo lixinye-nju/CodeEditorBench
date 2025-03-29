@@ -1,10 +1,11 @@
 not published/
-data/
+data
 greedy_result/
 
 
 evaluation/judge/*.pid
 evaluation/judge/data
+evaluation/judge/run*
 evaluation/judge/log
 evaluation/judge/metrics
 evaluation/judge/polish_limit
