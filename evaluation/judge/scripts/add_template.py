@@ -602,6 +602,9 @@ for model_name in model_names:
     folders=["code_debug","code_polishment","code_switch","code_translate"]
     idxprefixes=["Code_Debug","Code_Polishment","Code_Switch","Code_Translate"]
     output_file=os.path.join(output_folder,model_name+".jsonl")
+    if os.path.exists(output_file):
+        print(f"Skip {model_name}.")
+        continue
     with open(output_file,"w+",encoding="utf-8") as outf:
         count=0
         nosolution_num=0
